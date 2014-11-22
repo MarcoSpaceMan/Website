@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <script>
+        var pages = ["header",".introduction",".projects",".resume",".contact"];
+        var curpage = 0;
+        
+        /*$(window).scroll(function(){ 
+            curpage++;
+            if (curpage > 4)
+                curpage = 0;
+            $('html, body').animate({scrollTop:$(pages[curpage]).offset().top - 80}, 'slow');
+            });
+        */
+        
+        $(document).ready(function(){
+        $(".nav").click(function () {
+            
+            var divClass = '.' + this.id;
+            
+            if (this.id == "header")
+                divClass = "header";
+            
+            $('html, body').stop().animate({scrollTop:$(divClass).offset().top + 0}, 'slow');
+            });
+            
+            /*$(divClass).toggleClass("selected");*/
+        });
+        
+        var navmenu = false;
+        $(document).mousemove(function(event){
+            if (event.clientY < 200){
+                if (!navmenu){
+                    $(".navmenu").stop();
+                    $(".navmenu").css('margin-top',"-100px");
+                    $(".navmenu").animate({marginTop:"+=100px", opacity: 1},400);
+                    navmenu = true;
+                }
+            }
+            else{
+                if (navmenu){
+                    $(".navmenu").stop();
+                    $(".navmenu").css('margin-top',"0px");
+                    $(".navmenu").animate({marginTop:"-=100px", opacity:0},400);;
+                    navmenu = false;
+                }
+            }
+        });
+    </script>
+    
+    
+    
+</head>
+<body>
+    
+<div class="bigcontainer">
+    <div class="navmenu">
+        <ul>
+            <!--<li class="selected"><a href="home.html">Home</a></li>-->
+            <li><a class = "nav" id="header" href="javascript:void(0)">Home</a></li>
+            <li><a class = "nav" id="introduction" href="javascript:void(0)">About Me</a></li>
+            <li><a class = "nav" id="projects" href="javascript:void(0)">Projects</a></li>
+            <li><a class = "nav" id="resume" href="javascript:void(0)">Resume</a></li>
+            <li><a class = "nav" id="contact" href="javascript:void(0)">Contact</a></li>
+        </ul>
+    </div>
+    <header>
+        <h1>Marco Szawlowski</h1>
+        <h5><i>Bachelors of Computer Science, University of Waterloo</i></h5>
+    </header>
+    
+    <div class="introduction">
+        <h1> Who Am I?</h1>
+            <p> 
+                My name is Marco Szawlowski, I'm from Waterloo Ontario.  I studied at the university of waterloo Computer Science program and just graduated in August 2014.
+        </p>
+    </div>
+    
+    <div class="projects">
+        <h1> Here's what I've worked on</h1>
+            <ul>
+                <li>Animation Program</li>
+                <li>Campus Respond Team</li>
+            </ul>
+    </div>
+    
+    <div class="resume">
+            <h1>Marco Szawlowski</h1>
+            <h4>630 Keats Way-Unit 48, Waterloo ON <br>(519) 404-9564 <br> marconszawlowski@gmail.com</h4>
+            <h4><b>Education</b></h4>
+            <ul class="degree">
+                <li>Bachelor of Computer Science (Honours)<br><i>University of Waterloo, Waterloo ON </i></li> 
+                <li>completed August 2014</li>
+            </ul>
+            <h5><b>Courses include:</b></h5>
+            <ul>
+                <li>test</li>
+            </ul>
+            <ul>
+                
+            </ul>
+    </div>
+    
+    <div class="contact">
+            <h1>marconszawlowski@gmail.com</h1>
+    </div>
+</div>
+</body>
+</html>
